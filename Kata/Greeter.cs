@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace Kata
 {
-    public class Greeter
+    /// <summary>
+    /// Class to provide a 'greeting' in various languages.
+    /// </summary>
+    public sealed class Greeter
     {
+        /// <summary>
+        /// Default to English.
+        /// </summary>
         private readonly string defaultLanguage = "english";
 
+        /// <summary>
+        /// Map between a language and 'welcome' in that language.
+        /// </summary>
         private readonly Dictionary<string, string> languageToGreetingMaps = new Dictionary<string, string>()
         {
             { "english", "Welcome" },
@@ -31,6 +40,12 @@ namespace Kata
             { "welsh", "Croeso" }
         };
 
+        /// <summary>
+        /// For the specified language, return the appropriate gretting.
+        /// Defaults to English greeting, if the specified language is not supported.
+        /// </summary>
+        /// <param name="language">Language of the greeting.</param>
+        /// <returns>Greeting in the specified language.</returns>
         public string Greet(string language)
         {
             if (languageToGreetingMaps.ContainsKey(language))

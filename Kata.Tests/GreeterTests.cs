@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace Kata.Tests
 {
     [TestFixture]
-    public class GreeterTests
+    public sealed class GreeterTests
     {
         private readonly Greeter greeter = new Greeter();
 
