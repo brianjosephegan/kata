@@ -50,6 +50,7 @@
     <Compile Include="BinaryTreeLevelSorterTests.cs" />
     <Compile Include="CaseAlternaterTests.cs" />
     <Compile Include="GreeterTests.cs" />
+    <Compile Include="ProductExceptSelfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
