@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayFolder.cs" />
     <Compile Include="BinaryTreeLevelSorter.cs" />
     <Compile Include="CaseAlternater.cs" />
     <Compile Include="MultiplesFinder.cs" />

@@ -47,6 +47,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayFolderTests.cs" />
     <Compile Include="BinaryTreeLevelSorterTests.cs" />
     <Compile Include="CaseAlternaterTests.cs" />
     <Compile Include="GreeterTests.cs" />
