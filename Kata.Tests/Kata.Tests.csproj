@@ -54,6 +54,7 @@
     <Compile Include="MultiplesFinderTests.cs" />
     <Compile Include="ProductExceptSelfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PyramidArrayBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
