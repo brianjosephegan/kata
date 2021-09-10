@@ -51,6 +51,7 @@
     <Compile Include="BinaryTreeLevelSorterTests.cs" />
     <Compile Include="CaseAlternaterTests.cs" />
     <Compile Include="GreeterTests.cs" />
+    <Compile Include="HighestScoringWordFinderTests.cs" />
     <Compile Include="LongestRepetitiveCharacterFinderTests.cs" />
     <Compile Include="MultiplesFinderTests.cs" />
     <Compile Include="ProductExceptSelfTests.cs" />
