@@ -1,18 +1,27 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using Xunit;
 using System.Collections.Generic;
 
 namespace Kata.Tests
 {
-    [TestFixture]
     public class MultiplesFinderTests
     {
-        private readonly MultiplesFinder multiplesFinder = new MultiplesFinder();
+        private readonly MultiplesFinder _multiplesFinder = new MultiplesFinder();
 
-        [Test]
-        public void Test()
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void Test(int number, int limit, List<int> expected)
         {
-            Assert.AreEqual(new List<int> { 5, 10, 15, 20, 25 }, multiplesFinder.Find(5, 25));
-            Assert.AreEqual(new List<int> { 1, 2 }, multiplesFinder.Find(1, 2));
+            var result = _multiplesFinder.Find(number, limit);
+
+            result.Should().BeEquivalentTo(expected);
         }
+
+        public static IEnumerable<object[]> TestData =>
+            new List<object[]>
+            {
+                new object[] { 1, 2, new List<int> { 1, 2 } },
+                new object[] { 5, 25, new List<int> { 5, 10, 15, 20, 25 } },
+            };
     }
 }

@@ -1,22 +1,23 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
 using System.Collections.Generic;
+using Xunit;
 
 namespace Kata.Tests
 {
-    [TestFixture]
     public class ArrayFolderTests
     {
-        private readonly ArrayFolder arrayFolder = new ArrayFolder();
+        private readonly ArrayFolder _arrayFolder = new ArrayFolder();
 
-        [TestCaseSource(nameof(TestData))]
+        [Theory]
+        [MemberData(nameof(TestData))]
         public void BasicTests(int[] input, int runs, int[] expected)
         {
-            var actual = arrayFolder.Fold(input, runs);
+            var actual = _arrayFolder.Fold(input, runs);
 
-            CollectionAssert.AreEqual(expected, actual);
+            actual.Should().BeEquivalentTo(expected);
         }
 
-        private static List<object[]> TestData
+        public static List<object[]> TestData
         {
             get
             {

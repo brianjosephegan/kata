@@ -1,43 +1,61 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
 using System;
+using Xunit;
 
 namespace Kata.Tests
 {
-    [TestFixture]
     public class LongestRepetitiveCharacterFinderTests
     {
-        private readonly LongestRepetitiveCharacterFinder longestRepetitiveCharacterFinder = new LongestRepetitiveCharacterFinder();
+        private readonly LongestRepetitiveCharacterFinder _longestRepetitiveCharacterFinder = new LongestRepetitiveCharacterFinder();
 
-        [Test]
+        [Fact]
         public void LongestAtTheBeginningTest()
         {
-            Assert.AreEqual(new Tuple<char?, int>('a', 4), longestRepetitiveCharacterFinder.Find("aaaabb"));
-            Assert.AreEqual(new Tuple<char?, int>('b', 5), longestRepetitiveCharacterFinder.Find("abbbbb"));
+            var expected = new Tuple<char?, int>('a', 4);
+
+            var result = _longestRepetitiveCharacterFinder.Find("aaaabb");
+
+            result.Should().BeEquivalentTo(expected);
         }
 
-        [Test]
+        [Fact]
         public void LongestAtTheEndTest()
         {
-            Assert.AreEqual(new Tuple<char?, int>('a', 4), longestRepetitiveCharacterFinder.Find("bbbaaabaaaa"));
+            var expected = new Tuple<char?, int>('a', 4);
+
+            var result = _longestRepetitiveCharacterFinder.Find("bbbaaabaaaa");
+
+            result.Should().BeEquivalentTo(expected);
         }
 
-        [Test]
+        [Fact]
         public void LongestInTheMiddleTest()
         {
-            Assert.AreEqual(new Tuple<char?, int>('u', 3), longestRepetitiveCharacterFinder.Find("cbdeuuu900"));
+            var expected = new Tuple<char?, int>('u', 3);
+
+            var result = _longestRepetitiveCharacterFinder.Find("cbdeuuu900");
+
+            result.Should().BeEquivalentTo(expected);
         }
 
-        [Test]
+        [Fact]
         public void MultipleLongestTest()
         {
-            Assert.AreEqual(new Tuple<char?, int>('a', 2), longestRepetitiveCharacterFinder.Find("aabb"));
-            Assert.AreEqual(new Tuple<char?, int>('b', 1), longestRepetitiveCharacterFinder.Find("ba"));
+            var expected = new Tuple<char?, int>('a', 2);
+
+            var result = _longestRepetitiveCharacterFinder.Find("aabb");
+
+            result.Should().BeEquivalentTo(expected);
         }
 
-        [Test]
+        [Fact]
         public void EmptyStringTest()
         {
-            Assert.AreEqual(new Tuple<char?, int>(null, 0), longestRepetitiveCharacterFinder.Find(""));
+            var expected = new Tuple<char?, int>(null, 0);
+
+            var result = _longestRepetitiveCharacterFinder.Find(string.Empty);
+
+            result.Should().BeEquivalentTo(expected);
         }
     }
 }

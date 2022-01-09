@@ -1,20 +1,23 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Kata.Tests
 {
-    [TestFixture]
-    public sealed class GreeterTests
+    public class GreeterTests
     {
-        private readonly Greeter greeter = new Greeter();
+        private readonly Greeter _greeter = new Greeter();
 
-        [TestCase("Welcome", "english")]
-        [TestCase("Welkom", "dutch")]
-        [TestCase("Welcome", "IP_ADDRESS_INVALID")]
-        [TestCase("Welcome", "")]
-        [TestCase("Welcome", "2")]
+        [Theory]
+        [InlineData("Welcome", "english")]
+        [InlineData("Welkom", "dutch")]
+        [InlineData("Welcome", "IP_ADDRESS_INVALID")]
+        [InlineData("Welcome", "")]
+        [InlineData("Welcome", "2")]
         public void Test(string expected, string input)
         {
-            Assert.AreEqual(expected, greeter.Greet(input));
+            var result = _greeter.Greet(input);
+
+            result.Should().Be(expected);
         }
     }
 }

@@ -1,28 +1,44 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
 using System.Collections.Generic;
+using Xunit;
 using static Kata.BinaryTreeLevelSorter;
 
 namespace Kata.Tests
 {
-    [TestFixture]
-    public sealed class BinaryTreeLevelSorterTests
+    public class BinaryTreeLevelSorterTests
     {
-        private readonly BinaryTreeLevelSorter binaryTreeLevelSorter = new BinaryTreeLevelSorter();
+        private readonly BinaryTreeLevelSorter _binaryTreeLevelSorter = new BinaryTreeLevelSorter();
 
-        [Test]
+        [Fact]
         public void NullTest()
         {
-            Assert.AreEqual(
-                new List<int>(),
-                binaryTreeLevelSorter.Sort(null));
+            var result = _binaryTreeLevelSorter.Sort(null);
+
+            result.Should().NotBeNull();
+            result.Should().BeEmpty();
         }
 
-        [Test]
+        [Fact]
         public void BasicTest()
         {
-            Assert.AreEqual(
-                new List<int>() { 1, 2, 3, 4, 5, 6 },
-                binaryTreeLevelSorter.Sort(new Node(new Node(null, new Node(null, null, 4), 2), new Node(new Node(null, null, 5), new Node(null, null, 6), 3), 1)));
+            var expected = new List<int>() { 1, 2, 3, 4, 5, 6 };
+
+            var result = _binaryTreeLevelSorter.Sort(
+                new Node(
+                    new Node(
+                        null,
+                        new Node(null, null, 4),
+                        2),
+                    new Node(
+                        new Node(null, null, 5),
+                        new Node(null, null, 6),
+                        3
+                        ),
+                    1
+                    )
+                );
+
+            result.Should().BeEquivalentTo(expected);
         }
     }
 }

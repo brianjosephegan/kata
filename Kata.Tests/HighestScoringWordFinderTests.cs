@@ -1,25 +1,26 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Kata.Tests
 {
-    [TestFixture]
     public class HighestScoringWordFinderTests
     {
-        private HighestScoringWordFinder _highestScoringWordFinder = new HighestScoringWordFinder();
+        private readonly HighestScoringWordFinder _highestScoringWordFinder = new HighestScoringWordFinder();
 
-        [TestCase("man i need a taxi up to ubud", "taxi")]
-        [TestCase("what time are we climbing up to the volcano", "volcano")]
-        [TestCase("take me to semynak", "semynak")]
-        [TestCase("aa b", "aa")]
-        [TestCase("b aa", "b")]
-        [TestCase("bb d", "bb")]
-        [TestCase("d bb", "d")]
-        [TestCase("aaa b", "aaa")]
-        public void Test(string input, string expectedWord)
+        [Theory]
+        [InlineData("man i need a taxi up to ubud", "taxi")]
+        [InlineData("what time are we climbing up to the volcano", "volcano")]
+        [InlineData("take me to semynak", "semynak")]
+        [InlineData("aa b", "aa")]
+        [InlineData("b aa", "b")]
+        [InlineData("bb d", "bb")]
+        [InlineData("d bb", "d")]
+        [InlineData("aaa b", "aaa")]
+        public void Test(string input, string expected)
         {
-            var actualWord = _highestScoringWordFinder.Find(input);
+            var result = _highestScoringWordFinder.Find(input);
 
-            Assert.AreEqual(expectedWord, actualWord);
+            result.Should().Be(expected);
         }
     }
 }

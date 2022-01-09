@@ -1,22 +1,23 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using Xunit;
 using System.Collections.Generic;
 
 namespace Kata.Tests
 {
-    [TestFixture]
     public class PyramidArrayBuilderTests
     {
-        private readonly PyramidArrayBuilder pyramidArrayBuilder = new PyramidArrayBuilder();
+        private readonly PyramidArrayBuilder _pyramidArrayBuilder = new PyramidArrayBuilder();
 
-        [TestCaseSource(nameof(TestData))]
+        [Theory]
+        [MemberData(nameof(TestData))]
         public void BasicTests(int levels, int[][] expected)
         {
-            var actual = pyramidArrayBuilder.Build(levels);
+            var result = _pyramidArrayBuilder.Build(levels);
 
-            CollectionAssert.AreEqual(expected, actual);
+            result.Should().BeEquivalentTo(expected);
         }
 
-        private static List<object[]> TestData
+        public static List<object[]> TestData
         {
             get
             {
