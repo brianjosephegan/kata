@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayFolder.cs" />
+    <Compile Include="AsciiTotal.cs" />
     <Compile Include="BinaryTreeLevelSorter.cs" />
     <Compile Include="CaseAlternater.cs" />
     <Compile Include="HighestScoringWordFinder.cs" />

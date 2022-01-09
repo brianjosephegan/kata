@@ -9,7 +9,7 @@ namespace Kata.Tests
         private readonly PyramidArrayBuilder _pyramidArrayBuilder = new PyramidArrayBuilder();
 
         [Theory]
-        [MemberData(nameof(Data))]
+        [MemberData(nameof(TestData))]
         public void BasicTests(int levels, int[][] expected)
         {
             var result = _pyramidArrayBuilder.Build(levels);
@@ -17,7 +17,7 @@ namespace Kata.Tests
             result.Should().BeEquivalentTo(expected);
         }
 
-        public static List<object[]> Data
+        public static List<object[]> TestData
         {
             get
             {
