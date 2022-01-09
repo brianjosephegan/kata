@@ -79,6 +79,7 @@
     <Compile Include="ProductExceptSelfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PyramidArrayBuilderTests.cs" />
+    <Compile Include="SpaceValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kata\Kata.csproj">

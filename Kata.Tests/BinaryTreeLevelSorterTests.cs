@@ -19,7 +19,7 @@ namespace Kata.Tests
         }
 
         [Fact]
-        public void BasicTest()
+        public void Test()
         {
             var expected = new List<int>() { 1, 2, 3, 4, 5, 6 };
 

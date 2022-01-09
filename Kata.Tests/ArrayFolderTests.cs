@@ -9,15 +9,15 @@ namespace Kata.Tests
         private readonly ArrayFolder _arrayFolder = new ArrayFolder();
 
         [Theory]
-        [MemberData(nameof(TestData))]
-        public void BasicTests(int[] input, int runs, int[] expected)
+        [MemberData(nameof(Data))]
+        public void Test(int[] input, int runs, int[] expected)
         {
             var actual = _arrayFolder.Fold(input, runs);
 
             actual.Should().BeEquivalentTo(expected);
         }
 
-        public static List<object[]> TestData
+        public static List<object[]> Data
         {
             get
             {
