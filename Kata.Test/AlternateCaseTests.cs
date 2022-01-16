@@ -3,10 +3,8 @@ using Xunit;
 
 namespace Kata.Tests
 {
-    public class CaseAlternaterTests
+    public class AlternateCaseTests
     {
-        private readonly CaseAlternater _caseAlternater = new CaseAlternater();
-
         [Theory]
         [InlineData("HELLO WORLD", "hello world")]
         [InlineData("hello world", "HELLO WORLD")]
@@ -17,7 +15,7 @@ namespace Kata.Tests
         [InlineData("sTRING.tOaLTERNATINGcASE", "String.ToAlternatingCase")]
         public void Test(string expected, string input)
         {
-            var result = _caseAlternater.AlternateCase(input);
+            var result = AlternateCase.Alternate(input);
 
             result.Should().Be(expected);
         }

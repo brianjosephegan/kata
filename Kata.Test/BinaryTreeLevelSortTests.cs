@@ -1,29 +1,17 @@
 ﻿using FluentAssertions;
 using System.Collections.Generic;
 using Xunit;
-using static Kata.BinaryTreeLevelSorter;
 
-namespace Kata.Tests
+namespace Kata.Test
 {
-    public class BinaryTreeLevelSorterTests
+    public class BinaryTreeLevelSortTests
     {
-        private readonly BinaryTreeLevelSorter _binaryTreeLevelSorter = new BinaryTreeLevelSorter();
-
-        [Fact]
-        public void NullTest()
-        {
-            var result = _binaryTreeLevelSorter.Sort(null);
-
-            result.Should().NotBeNull();
-            result.Should().BeEmpty();
-        }
-
         [Fact]
         public void Test()
         {
             var expected = new List<int>() { 1, 2, 3, 4, 5, 6 };
 
-            var result = _binaryTreeLevelSorter.Sort(
+            var result = BinaryTreeLevelSort.Sort(
                 new Node(
                     new Node(
                         null,

@@ -1,8 +1,8 @@
 ﻿namespace Kata
 {
-    public class ProductExceptSelf
+    public static class ProductExceptSelf
     {
-        public int[] Compute(int[] numbers)
+        public static int[] Compute(int[] numbers)
         {
             var result = new int[numbers.Length];
             int lastProduct = 0;
@@ -24,7 +24,7 @@
             return result;
         }
 
-        private int ComputeProductExceptSelfFromIndex(int[] numbers, int targetIndex)
+        private static int ComputeProductExceptSelfFromIndex(int[] numbers, int targetIndex)
         {
             int? product = null;
 
@@ -46,6 +46,6 @@
             return product.Value;
         }
 
-        private int ComputeProductExceptSelfFromLastProduct(int[] numbers, int index, int lastProduct) => lastProduct / numbers[index] * numbers[index - 1];
+        private static int ComputeProductExceptSelfFromLastProduct(int[] numbers, int index, int lastProduct) => lastProduct / numbers[index] * numbers[index - 1];
     }
 }

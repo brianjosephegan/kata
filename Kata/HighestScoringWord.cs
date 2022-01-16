@@ -1,10 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Kata
 {
-    public class HighestScoringWordFinder
+    public static class HighestScoringWord
     {
-        public string Find(string input)
+        public static string Find(string input)
         {
             string highWord = null;
             int highWordScore = 0;
@@ -22,6 +26,6 @@ namespace Kata
             return highWord;
         }
 
-        private int GetWordScore(string word) => word.Select(c => c % 32).Sum();
+        private static int GetWordScore(string word) => word.Select(c => c % 32).Sum();
     }
 }

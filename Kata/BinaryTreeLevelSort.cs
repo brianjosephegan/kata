@@ -3,26 +3,12 @@ using System.Linq;
 
 namespace Kata
 {
-    public sealed class BinaryTreeLevelSorter
+    public static class BinaryTreeLevelSort
     {
-        public class Node
+        public static List<int> Sort(Node node)
         {
-            public Node Left { get; }
-            public Node Right { get; }
-            public int Value { get; }
-
-            public Node(Node left, Node right, int value)
-            {
-                Left = left;
-                Right = right;
-                Value = value;
-            }
-        }
-
-        public List<int> Sort(Node node)
-        {
-            List<int> result = new List<int>();
-            Queue<Node> nodesToVisit = new Queue<Node>();
+            var result = new List<int>();
+            var nodesToVisit = new Queue<Node>();
 
             if (node != null)
             {
@@ -46,6 +32,20 @@ namespace Kata
             }
 
             return result;
+        }
+    }
+
+    public class Node
+    {
+        public Node Left { get; }
+        public Node Right { get; }
+        public int Value { get; }
+
+        public Node(Node left, Node right, int value)
+        {
+            Left = left;
+            Right = right;
+            Value = value;
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Kata
 {
-    public class SpaceValidator
+    public static class ValidSpaces
     {
-        public bool Validate(string input) =>
+        public static bool Validate(string input) =>
             input == string.Empty ||
             !input.StartsWith(string.Empty) ||
             !input.EndsWith(string.Empty) ||

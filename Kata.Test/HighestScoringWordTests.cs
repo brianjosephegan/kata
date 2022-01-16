@@ -1,12 +1,10 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Kata.Tests
+namespace Kata.Test
 {
-    public class HighestScoringWordFinderTests
+    public class HighestScoringWordTests
     {
-        private readonly HighestScoringWordFinder _highestScoringWordFinder = new HighestScoringWordFinder();
-
         [Theory]
         [InlineData("man i need a taxi up to ubud", "taxi")]
         [InlineData("what time are we climbing up to the volcano", "volcano")]
@@ -18,7 +16,7 @@ namespace Kata.Tests
         [InlineData("aaa b", "aaa")]
         public void Test(string input, string expected)
         {
-            var result = _highestScoringWordFinder.Find(input);
+            var result = HighestScoringWord.Find(input);
 
             result.Should().Be(expected);
         }

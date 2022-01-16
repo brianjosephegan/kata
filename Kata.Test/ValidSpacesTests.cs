@@ -1,12 +1,10 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Kata.Tests
+namespace Kata.Test
 {
-    public class SpaceValidatorTests
+    public class ValidSpacesTests
     {
-        private readonly SpaceValidator _spaceValidator = new SpaceValidator();
-
         [Theory]
         [InlineData("Hello world", true)]
         [InlineData(" Hello world", false)]
@@ -15,7 +13,7 @@ namespace Kata.Tests
         [InlineData("Helloworld", true)]
         public void Test(string input, bool expected)
         {
-            var result = _spaceValidator.Validate(input);
+            var result = ValidSpaces.Validate(input);
 
             result.Should().Be(expected);
         }

@@ -2,9 +2,9 @@
 
 namespace Kata
 {
-    public class LongestRepetitiveCharacterFinder
+    public static class LongestRepetitiveCharacter
     {
-        public Tuple<char?, int> Find(string input)
+        public static Tuple<char?, int> Find(string input)
         {
             var maxCharToCount = new Tuple<char?, int>(null, 0);
 

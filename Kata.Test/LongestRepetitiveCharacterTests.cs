@@ -2,18 +2,16 @@
 using System;
 using Xunit;
 
-namespace Kata.Tests
+namespace Kata.Test
 {
-    public class LongestRepetitiveCharacterFinderTests
+    public class LongestRepetitiveCharacterTests
     {
-        private readonly LongestRepetitiveCharacterFinder _longestRepetitiveCharacterFinder = new LongestRepetitiveCharacterFinder();
-
         [Fact]
         public void LongestAtTheBeginningTest()
         {
             var expected = new Tuple<char?, int>('a', 4);
 
-            var result = _longestRepetitiveCharacterFinder.Find("aaaabb");
+            var result = LongestRepetitiveCharacter.Find("aaaabb");
 
             result.Should().BeEquivalentTo(expected);
         }
@@ -23,7 +21,7 @@ namespace Kata.Tests
         {
             var expected = new Tuple<char?, int>('a', 4);
 
-            var result = _longestRepetitiveCharacterFinder.Find("bbbaaabaaaa");
+            var result = LongestRepetitiveCharacter.Find("bbbaaabaaaa");
 
             result.Should().BeEquivalentTo(expected);
         }
@@ -33,7 +31,7 @@ namespace Kata.Tests
         {
             var expected = new Tuple<char?, int>('u', 3);
 
-            var result = _longestRepetitiveCharacterFinder.Find("cbdeuuu900");
+            var result = LongestRepetitiveCharacter.Find("cbdeuuu900");
 
             result.Should().BeEquivalentTo(expected);
         }
@@ -43,7 +41,7 @@ namespace Kata.Tests
         {
             var expected = new Tuple<char?, int>('a', 2);
 
-            var result = _longestRepetitiveCharacterFinder.Find("aabb");
+            var result = LongestRepetitiveCharacter.Find("aabb");
 
             result.Should().BeEquivalentTo(expected);
         }
@@ -53,7 +51,7 @@ namespace Kata.Tests
         {
             var expected = new Tuple<char?, int>(null, 0);
 
-            var result = _longestRepetitiveCharacterFinder.Find(string.Empty);
+            var result = LongestRepetitiveCharacter.Find(string.Empty);
 
             result.Should().BeEquivalentTo(expected);
         }

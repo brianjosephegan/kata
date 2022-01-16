@@ -14,7 +14,7 @@ namespace Kata.Tests
         [InlineData("Mary Had A Little Lamb", 1873)]
         public void Test(string input, int expected)
         {
-            var result = AsciiTotal.SumCharacrters(input);
+            var result = AsciiTotal.SumCharacters(input);
 
             result.Should().Be(expected);
         }

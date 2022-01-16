@@ -2,9 +2,9 @@
 
 namespace Kata
 {
-    public class PyramidArrayBuilder
+    public static class PyramidArray
     {
-        public int[][] Build(int levels)
+        public static int[][] Build(int levels)
         {
             int[][] result = new int[levels][];
 

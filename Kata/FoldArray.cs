@@ -2,9 +2,9 @@
 
 namespace Kata
 {
-    public class ArrayFolder
+    public static class FoldArray
     {
-        public int[] Fold(int[] array, int runs)
+        public static int[] Fold(int[] array, int runs)
         {
             int[] result = array;
 
@@ -16,7 +16,7 @@ namespace Kata
             return result;
         }
 
-        private int[] Fold(int[] array)
+        private static int[] Fold(int[] array)
         {
             var resultLength = (int)Math.Ceiling(array.Length / 2.0);
             int[] result = new int[resultLength];
