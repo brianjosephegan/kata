@@ -4,7 +4,7 @@ namespace Kata
 {
     public static class AlternateCase
     {
-        public static string Alternate(string input) => new string(
+        public static string Alternate(string input) => new(
             input.Select(c => char.IsLetter(c) ? SwapCase(c) : c).ToArray()
             );
 

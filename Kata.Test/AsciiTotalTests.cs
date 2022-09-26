@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Kata.Tests
+namespace Kata.Test
 {
     public class AsciiTotalTests
     {
