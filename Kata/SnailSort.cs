@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Kata
 {
@@ -13,14 +7,20 @@ namespace Kata
     {
         public static int[] Sort(int[][] array)
         {
+            if (array == null || (array.Length == 1 && array[0].Length == 0))
+            {
+                return Array.Empty<int>();
+            }
+
             var result = new List<int>();
             var direction = Direction.Right;
             var rowIndex = 0;
             var columnIndex = 0;
             var iterationCount = 0;
+            var totalNumbersToAdd = array.Length * array.Length;
             var numbersToAdd = array.Length;
 
-            while (result.Count != (array.Length * array.Length))
+            while (result.Count != totalNumbersToAdd)
             {
                 switch (direction)
                 {
@@ -39,11 +39,11 @@ namespace Kata
                 }
 
                 direction = ChangeDirection(direction, ref rowIndex, ref columnIndex);
-                iterationCount++;
-                if (iterationCount == 1 || iterationCount % 3 == 0)
+                if (numbersToAdd == array.Length || iterationCount % 2 == 0)
                 {
                     numbersToAdd--;
                 }
+                iterationCount++;
             }
 
             return result.ToArray();
